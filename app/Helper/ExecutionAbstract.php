@@ -8,7 +8,7 @@ use Exception;
 
 abstract class ExecutionAbstract
 {
-    const KEY_EXECUTION_PATH = 'execution_path';
+    const KEY_EXECUTION_PATH = 'execution-path';
 
     protected $configuration;
     protected $executionPath;
