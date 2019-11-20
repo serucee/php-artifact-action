@@ -4,8 +4,5 @@
 set -e
 
 echo "Calling php script"
-#pwd
-#ls -la
 php /usr/local/bin/app/main.php
-pwd
-ls -la
+# add check if zip file was created in workspace dir
