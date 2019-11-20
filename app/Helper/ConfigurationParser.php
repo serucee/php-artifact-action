@@ -4,13 +4,18 @@
 namespace ArtifactCreation\Helper;
 
 
-use mysql_xdevapi\Exception;
+use Exception;
 
 class ConfigurationParser
 {
     const CONFIGURATION_KEY_COMPOSER = 'composer';
     const CONFIGURATION_KEY_PACKAGE = 'package';
 
+    /**
+     * @param $fullyQualifiedFileName
+     * @return mixed
+     * @throws Exception
+     */
     public static function parseJsonFile($fullyQualifiedFileName)
     {
         $fileContentRaw = file_get_contents($fullyQualifiedFileName);
