@@ -4,7 +4,7 @@
 namespace ArtifactCreation\Helper;
 
 
-public class ArrayHelper
+class ArrayHelper
 {
     public static function valueByKeySave($array, $key, $fallbackReturn = null) {
 
