@@ -1,3 +1,3 @@
 #!/bin/sh -l
 
-php -f /app/main.php
+php -f ./app/main.php
