@@ -1,12 +1,14 @@
 <?php
 
+
 namespace ArtifactCreation\Core;
 
 use ArtifactCreation\Helper\Composer;
 use ArtifactCreation\Helper\ConfigurationParser;
 use ArtifactCreation\Helper\Package;
-use mysql_xdevapi\Exception;
+use Exception;
 
+require __DIR__ . '../vendor/autoload.php';
 $fullyQualifiedConfigurationFileName = '/github/workspace/.github/artifact-configuration.json';
 
 try {

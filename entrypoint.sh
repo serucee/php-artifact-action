@@ -4,6 +4,6 @@
 set -e
 
 echo "Calling php script"
-pwd
-ls -la
+#pwd
+#ls -la
 php /usr/local/bin/app/main.php
