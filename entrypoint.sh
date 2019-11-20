@@ -1,3 +1,7 @@
 #!/bin/sh -l
 
-php -f ./app/main.php
+# Exit on failure
+set -e
+
+echo "Calling php script"
+php ./app/main.php

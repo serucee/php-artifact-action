@@ -1,6 +1,5 @@
 FROM composer:latest
 
-COPY entrypoint.sh /usr/local/bin/entrypoint.sh
-COPY app /usr/local/bin/app
+COPY . /usr/local/bin
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
