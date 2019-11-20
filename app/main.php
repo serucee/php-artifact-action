@@ -19,8 +19,6 @@ try {
 $composerConfiguration = ConfigurationParser::parseComposerConfiguration($configuration);
 $packageConfiguration  = ConfigurationParser::parsePackageConfiguration($configuration);
 if ($packageConfiguration === null) {
-    print_r($configuration['package']);
-    print_r($configuration);
     die('No package configuration provided at .github/artifact-configuration.json');
 }
 
