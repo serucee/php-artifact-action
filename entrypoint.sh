@@ -7,3 +7,5 @@ echo "Calling php script"
 #pwd
 #ls -la
 php /usr/local/bin/app/main.php
+pwd
+ls -la
