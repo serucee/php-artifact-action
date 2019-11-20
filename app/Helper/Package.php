@@ -54,7 +54,7 @@ class Package extends ExecutionAbstract implements RunnableInterface
     }
 
     protected function buildCommand() {
-        $command = self::CMD_ZIP . $this->artifactFilename;
+        $command = self::CMD_ZIP . $this->artifactFilename . ' . ';
 
         if (!$this->blacklistEmpty()) {
             $command .= $this->createBlacklist();
