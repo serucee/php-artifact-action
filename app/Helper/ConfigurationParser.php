@@ -4,6 +4,8 @@
 namespace ArtifactCreation\Helper;
 
 
+use mysql_xdevapi\Exception;
+
 class ConfigurationParser
 {
     const CONFIGURATION_KEY_COMPOSER = 'composer';
@@ -12,6 +14,9 @@ class ConfigurationParser
     public static function parseJsonFile($fullyQualifiedFileName)
     {
         $fileContentRaw = file_get_contents($fullyQualifiedFileName);
+        if ($fileContentRaw === false) {
+            throw new Exception('Could not load configuration file!');
+        }
 
         return json_decode($fileContentRaw, true);
     }
