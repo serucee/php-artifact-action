@@ -28,8 +28,14 @@ class Package extends ExecutionAbstract implements RunnableInterface
             $this->dieWithError('Package/Zip', $e);
         }
 
+        echo "Package::setArtifactFilename() called";
         $this->setArtifactFilename();
+        echo "ArtifactFilename::" . $this->artifactFilename;
+        echo "Package::buildCommand() called";
         $this->buildCommand();
+        echo "ExecutionPath::" . $this->executionPath;
+        echo "Cmd::" . $this->cmd;
+        echo "Package::zip() called";
         $this->zip();
     }
 
@@ -44,7 +50,7 @@ class Package extends ExecutionAbstract implements RunnableInterface
             $this->cmd
         );
 
-        shell_exec($fullCommand);
+        var_dump(shell_exec($fullCommand));
     }
 
     protected function buildCommand() {
