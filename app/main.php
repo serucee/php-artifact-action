@@ -20,7 +20,7 @@ $composerConfiguration = ConfigurationParser::parseComposerConfiguration($config
 $packageConfiguration  = ConfigurationParser::parsePackageConfiguration($configuration);
 if ($packageConfiguration === null) {
     var_dump($configuration);
-    var_dump($packageConfiguration);
+    print_r($configuration);
     die('No package configuration provided at .github/artifact-configuration.json');
 }
 
