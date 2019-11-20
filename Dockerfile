@@ -1,7 +1,6 @@
-FROM alpine:3.10
+FROM composer:latest
 
-COPY LICENSE README.md /
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+COPY app /usr/local/bin/app
 
-COPY entrypoint.sh /entrypoint.sh
-
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
