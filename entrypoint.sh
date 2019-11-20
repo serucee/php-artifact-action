@@ -6,4 +6,4 @@ set -e
 echo "Calling php script"
 pwd
 ls -la
-php ./app/main.php
+php /usr/local/bin/app/main.php
