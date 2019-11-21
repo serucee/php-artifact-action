@@ -5,6 +5,9 @@ namespace ArtifactCreation\Helper;
 
 
 use ArtifactCreation\Builder\PackageConfigurationBuilder;
+use ArtifactCreation\Exception\InvalidFileException;
+use ArtifactCreation\Exception\MissingConfigurationException;
+use ArtifactCreation\Exception\MissingFileException;
 use ArtifactCreation\Model\ComposerConfiguration;
 use Exception;
 
@@ -43,13 +46,13 @@ class ConfigurationParser
     {
         $fileContentRaw = file_get_contents($fullyQualifiedFileName);
         if ($fileContentRaw === false) {
-            throw new Exception('Could not load configuration file!');
+            throw new MissingFileException('Could not load configuration file!');
         }
 
         $fileContent = json_decode($fileContentRaw, true);
 
         if (json_last_error() != JSON_ERROR_NONE) {
-            throw new Exception('Configuration file is not valid json!');
+            throw new InvalidFileException('Configuration file is not valid json!');
         }
 
         return $fileContent;
@@ -69,7 +72,7 @@ class ConfigurationParser
     {
         $packageConfiguration = $this->fetchConfigurationParameter(self::CONFIGURATION_KEY_PACKAGE);
         if ($packageConfiguration === null) {
-            throw new Exception('No package configuration provided at .github/artifact-configuration.json');
+            throw new MissingConfigurationException('No package configuration provided at .github/artifact-configuration.json');
         }
 
         $this->packageConfiguration = (new PackageConfigurationBuilder())->build($packageConfiguration);

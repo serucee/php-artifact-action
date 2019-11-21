@@ -1,11 +1,15 @@
 <?php
 
-
 namespace ArtifactCreation\Model;
-
 
 use ArtifactCreation\Helper\ArrayHelper;
 
+/**
+ * Abstract configuration object used by runners
+ *
+ * Class ConfigurationAbstract
+ * @package ArtifactCreation\Model
+ */
 abstract class ConfigurationAbstract
 {
     const KEY_EXECUTION_PATH = 'execution_path';
