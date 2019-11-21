@@ -4,14 +4,30 @@
 namespace ArtifactCreation\Helper;
 
 
+use Exception;
+
 class ArrayHelper
 {
-    public static function valueByKeySave($array, $key, $fallbackReturn = null) {
+    /**
+     * @param $array
+     * @param $key
+     * @param null $defaultValue
+     * @param bool $requiredParameter
+     *
+     * @return array|string|null
+     *
+     * @throws Exception
+     */
+    public static function valueByKeySave($array, $key, $defaultValue = null, $requiredParameter = false) {
 
-        if (isset($array[$key])) {
+        if (is_array($array) && isset($array[$key])) {
             return $array[$key];
         }
 
-        return $fallbackReturn;
+        if ($requiredParameter) {
+            throw new Exception('Required parameter missing!:: array: ' . json_encode($array) . 'key: ' . $key);
+        }
+
+        return $defaultValue;
     }
 }
