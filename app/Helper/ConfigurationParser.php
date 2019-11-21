@@ -84,7 +84,7 @@ class ConfigurationParser
      * Fetch the given key from the loaded configuration
      *
      * @param string|int $key
-     * @param bool $mandatory
+     * @param bool $mandatory   Throw error if value does not exist
      *
      * @return array|string|null
      *
