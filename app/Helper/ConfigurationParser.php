@@ -92,11 +92,7 @@ class ConfigurationParser
      */
     protected function fetchConfigurationParameter($key, $mandatory = false)
     {
-        if ($mandatory) {
-            return ArrayHelper::valueByKey($this->configuration, $key, $mandatory);
-        }
-
-        return ArrayHelper::valueByKey($this->configuration, $key);
+        return ArrayHelper::valueByKey($this->configuration, $key, $mandatory);
     }
 
     /**
