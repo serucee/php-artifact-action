@@ -57,7 +57,7 @@ class ConfigurationParser
 
     protected function fetchConfigurationParameter($key)
     {
-        return ArrayHelper::valueByKeySave($this->configuration, $key);
+        return ArrayHelper::valueByKey($this->configuration, $key);
     }
 
     /**

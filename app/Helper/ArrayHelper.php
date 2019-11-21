@@ -18,7 +18,7 @@ class ArrayHelper
      *
      * @throws Exception
      */
-    public static function valueByKeySave($array, $key, $defaultValue = null, $requiredParameter = false) {
+    public static function valueByKey($array, $key, $defaultValue = null, $requiredParameter = false) {
 
         if (is_array($array) && isset($array[$key])) {
             return $array[$key];

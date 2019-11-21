@@ -22,7 +22,7 @@ abstract class ConfigurationAbstract
     }
 
     protected function setExecutionPath() {
-        $executionPath = ArrayHelper::valueByKeySave($this->configurationArray, self::KEY_EXECUTION_PATH);
+        $executionPath = ArrayHelper::valueByKey($this->configurationArray, self::KEY_EXECUTION_PATH);
         if ($executionPath === null) {
             $executionPath = '/github/workspace';
         }

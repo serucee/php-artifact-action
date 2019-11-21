@@ -41,7 +41,7 @@ class PackageZipConfiguration extends ConfigurationAbstract
 
     protected function fetchBlackListParameters($key, $glue = ' ') {
         $parameters    = '';
-        $valueArray = ArrayHelper::valueByKeySave($this->configurationArray, $key);
+        $valueArray = ArrayHelper::valueByKey($this->configurationArray, $key);
         if ($valueArray !== null && is_array($valueArray)) {
             $parameters .= ' ';
             $parameters .= implode($glue, $valueArray);

@@ -19,7 +19,7 @@ class PackageConfigurationFactory
      * @throws Exception
      */
     public function build($packageConfiguration) {
-        $packageType = ArrayHelper::valueByKeySave($packageConfiguration, ConfigurationParser::CONFIGURATION_KEY_PACKAGE_TYPE);
+        $packageType = ArrayHelper::valueByKey($packageConfiguration, ConfigurationParser::CONFIGURATION_KEY_PACKAGE_TYPE);
 
         if ($packageType === PackageZipConfiguration::PACKAGE_TYPE) {
             return new PackageZipConfiguration($packageConfiguration);
