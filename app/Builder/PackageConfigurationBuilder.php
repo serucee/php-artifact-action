@@ -6,6 +6,7 @@ use ArtifactCreation\Exception\MissingConfigurationException;
 use ArtifactCreation\Exception\MissingParameterException;
 use ArtifactCreation\Helper\ArrayHelper;
 use ArtifactCreation\Helper\ConfigurationParser;
+use ArtifactCreation\Model\PackageConfigurationAbstract;
 use ArtifactCreation\Model\PackageConfigurationZip;
 
 /**
@@ -21,7 +22,7 @@ class PackageConfigurationBuilder
      *
      * @param $packageConfiguration
      *
-     * @return PackageConfigurationZip
+     * @return PackageConfigurationAbstract PackageConfigurationZip
      *
      * @throws MissingConfigurationException
      * @throws MissingParameterException
