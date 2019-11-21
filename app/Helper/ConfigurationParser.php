@@ -39,7 +39,7 @@ class ConfigurationParser
     /**
      * ConfigurationParser constructor.
      *
-     * @param $fullyQualifiedFileName
+     * @param string $fullyQualifiedFileName
      *
      * @throws InvalidFileException
      * @throws MissingConfigurationException
@@ -49,8 +49,8 @@ class ConfigurationParser
     public function __construct($fullyQualifiedFileName)
     {
         $this->configuration = $this->parseJsonFile($fullyQualifiedFileName);
-        $this->setPackageConfiguration();
-        $this->setComposerConfiguration();
+        $this->initPackageConfiguration();
+        $this->initComposerConfiguration();
     }
 
 
@@ -77,6 +77,10 @@ class ConfigurationParser
             throw new InvalidFileException('Configuration file is not valid json!');
         }
 
+        if (!is_array($fileContent)) {
+            throw new InvalidFileException('Configuration file could not be parsed as an array');
+        }
+
         return $fileContent;
     }
 
@@ -84,7 +88,7 @@ class ConfigurationParser
      * Fetch the given key from the loaded configuration
      *
      * @param string|int $key
-     * @param bool $mandatory   Throw error if value does not exist
+     * @param bool $mandatory Throw error if value does not exist
      *
      * @return array|string|null
      *
@@ -96,23 +100,23 @@ class ConfigurationParser
     }
 
     /**
-     * Set the package configuration
+     * Initialize the package configuration
      *
      * @throws MissingConfigurationException
      * @throws MissingParameterException
      */
-    protected function setPackageConfiguration()
+    protected function initPackageConfiguration()
     {
-        $packageConfiguration       = $this->fetchConfigurationParameter(self::CONFIGURATION_KEY_PACKAGE, true);
+        $packageConfiguration = $this->fetchConfigurationParameter(self::CONFIGURATION_KEY_PACKAGE, true);
         $this->packageConfiguration = (new PackageConfigurationBuilder())->build($packageConfiguration);
     }
 
     /**
-     * Set the composer configuration
+     * Initialize the composer configuration
      *
      * @throws MissingParameterException
      */
-    protected function setComposerConfiguration()
+    protected function initComposerConfiguration()
     {
         $composerConfiguration = $this->fetchConfigurationParameter(self::CONFIGURATION_KEY_COMPOSER);
 

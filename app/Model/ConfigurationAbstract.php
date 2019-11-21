@@ -26,11 +26,11 @@ abstract class ConfigurationAbstract
     /**
      * ConfigurationAbstract constructor.
      *
-     * @param $configuration
+     * @param array $configuration
      *
      * @throws MissingParameterException
      */
-    public function __construct($configuration)
+    public function __construct(array $configuration)
     {
         $this->configurationArray = $configuration;
         $this->setExecutionPath();
@@ -42,9 +42,11 @@ abstract class ConfigurationAbstract
      *
      * @throws MissingParameterException
      */
-    protected function setExecutionPath() {
+    protected function setExecutionPath()
+    {
         $executionPath = ArrayHelper::valueByKey($this->configurationArray, self::KEY_EXECUTION_PATH);
         if ($executionPath === null) {
+            //@todo replace with passed ENV github.workspace
             $executionPath = '/github/workspace';
         }
 
@@ -54,16 +56,15 @@ abstract class ConfigurationAbstract
     /**
      * Set command
      */
-    protected function setCommand() {
-        $this->command = 'echo "No command defined!"';
-    }
+    abstract protected function setCommand();
 
     /**
      * Get command
      *
      * @return string
      */
-    public function getCommand() {
+    public function getCommand()
+    {
         return $this->command;
     }
 
@@ -72,7 +73,8 @@ abstract class ConfigurationAbstract
      *
      * @return string
      */
-    public function getExecutionPath() {
+    public function getExecutionPath()
+    {
         return $this->executionPath;
     }
 }

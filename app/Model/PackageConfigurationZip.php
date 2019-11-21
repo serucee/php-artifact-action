@@ -27,11 +27,11 @@ class PackageConfigurationZip extends PackageConfigurationAbstract
     /**
      * PackageConfigurationZip constructor.
      *
-     * @param $configuration
+     * @param array $configuration
      *
      * @throws MissingParameterException
      */
-    public function __construct($configuration)
+    public function __construct(array $configuration)
     {
         parent::__construct($configuration);
 
@@ -78,7 +78,7 @@ class PackageConfigurationZip extends PackageConfigurationAbstract
     protected function fetchBlackListParameters($key, $glue = ' ') {
         $parameters    = '';
         $valueArray = ArrayHelper::valueByKey($this->configurationArray, $key);
-        if ($valueArray !== null && is_array($valueArray)) {
+        if ($valueArray !== null) {
             $parameters .= ' ';
             $parameters .= implode($glue, $valueArray);
         }
