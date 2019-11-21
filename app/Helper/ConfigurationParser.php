@@ -103,13 +103,8 @@ class ConfigurationParser
      */
     protected function setPackageConfiguration()
     {
-        $packageConfiguration = $this->fetchConfigurationParameter(self::CONFIGURATION_KEY_PACKAGE, true);
-        if ($packageConfiguration === null) {
-            throw new MissingConfigurationException('No package configuration provided at .github/artifact-configuration.json');
-        }
-
+        $packageConfiguration       = $this->fetchConfigurationParameter(self::CONFIGURATION_KEY_PACKAGE, true);
         $this->packageConfiguration = (new PackageConfigurationBuilder())->build($packageConfiguration);
-
     }
 
     /**
