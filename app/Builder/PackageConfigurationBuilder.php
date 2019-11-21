@@ -20,14 +20,14 @@ class PackageConfigurationBuilder
     /**
      * Builds the package configuration
      *
-     * @param $packageConfiguration
+     * @param array $packageConfiguration
      *
-     * @return PackageConfigurationAbstract PackageConfigurationZip
+     * @return PackageConfigurationZip
      *
      * @throws MissingConfigurationException
      * @throws MissingParameterException
      */
-    public function build($packageConfiguration) {
+    public function build(array $packageConfiguration) {
         $packageType = ArrayHelper::valueByKey($packageConfiguration, ConfigurationParser::CONFIGURATION_KEY_PACKAGE_TYPE);
 
         if ($packageType === PackageConfigurationZip::PACKAGE_TYPE) {
