@@ -24,7 +24,7 @@ class ArrayHelper
      *
      * @throws MissingParameterException
      */
-    public static function valueByKey($array, $key, $requiredParameter = false, $defaultValue = null) {
+    public static function valueByKey(array $array, $key, $requiredParameter = false, $defaultValue = null) {
 
         if (is_array($array) && isset($array[$key])) {
             return $array[$key];
