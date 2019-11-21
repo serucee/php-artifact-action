@@ -1,7 +1,7 @@
 <?php
 
 
-namespace ArtifactCreation\Factory;
+namespace ArtifactCreation\Builder;
 
 
 use ArtifactCreation\Helper\ArrayHelper;
@@ -9,7 +9,7 @@ use ArtifactCreation\Helper\ConfigurationParser;
 use ArtifactCreation\Model\PackageZipConfiguration;
 use Exception;
 
-class PackageConfigurationFactory
+class PackageConfigurationBuilder
 {
     /**
      * @param $packageConfiguration

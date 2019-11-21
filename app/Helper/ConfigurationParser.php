@@ -4,7 +4,7 @@
 namespace ArtifactCreation\Helper;
 
 
-use ArtifactCreation\Factory\PackageConfigurationFactory;
+use ArtifactCreation\Builder\PackageConfigurationBuilder;
 use ArtifactCreation\Model\ComposerConfiguration;
 use Exception;
 
@@ -72,7 +72,7 @@ class ConfigurationParser
             throw new Exception('No package configuration provided at .github/artifact-configuration.json');
         }
 
-        $this->packageConfiguration = (new PackageConfigurationFactory())->build($packageConfiguration);
+        $this->packageConfiguration = (new PackageConfigurationBuilder())->build($packageConfiguration);
 
     }
 

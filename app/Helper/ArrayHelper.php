@@ -9,8 +9,8 @@ use Exception;
 class ArrayHelper
 {
     /**
-     * @param $array
-     * @param $key
+     * @param array $array
+     * @param string|int $key
      * @param null $defaultValue
      * @param bool $requiredParameter
      *
