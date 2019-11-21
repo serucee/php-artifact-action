@@ -28,6 +28,6 @@ class ExceptionHelper
             $error->getMessage()
         );
         echo $msg;
-        die();
+        exit(1);
     }
 }

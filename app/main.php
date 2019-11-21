@@ -24,3 +24,5 @@ if ($configuration->hasComposerConfiguration()) {
 }
 
 $runner->execute($configuration->getPackageConfiguration());
+
+exit(0);
