@@ -6,8 +6,14 @@ use ArtifactCreation\Exception\MissingConfigurationException;
 use ArtifactCreation\Exception\MissingParameterException;
 use ArtifactCreation\Helper\ArrayHelper;
 use ArtifactCreation\Helper\ConfigurationParser;
-use ArtifactCreation\Model\PackageZipConfiguration;
+use ArtifactCreation\Model\PackageConfigurationZip;
 
+/**
+ * Builder for package configuration objects
+ *
+ * Class PackageConfigurationBuilder
+ * @package ArtifactCreation\Builder
+ */
 class PackageConfigurationBuilder
 {
     /**
@@ -15,7 +21,7 @@ class PackageConfigurationBuilder
      *
      * @param $packageConfiguration
      *
-     * @return PackageZipConfiguration
+     * @return PackageConfigurationZip
      *
      * @throws MissingConfigurationException
      * @throws MissingParameterException
@@ -23,8 +29,8 @@ class PackageConfigurationBuilder
     public function build($packageConfiguration) {
         $packageType = ArrayHelper::valueByKey($packageConfiguration, ConfigurationParser::CONFIGURATION_KEY_PACKAGE_TYPE);
 
-        if ($packageType === PackageZipConfiguration::PACKAGE_TYPE) {
-            return new PackageZipConfiguration($packageConfiguration);
+        if ($packageType === PackageConfigurationZip::PACKAGE_TYPE) {
+            return new PackageConfigurationZip($packageConfiguration);
         }
 
         throw new MissingConfigurationException('No available package type configured!');

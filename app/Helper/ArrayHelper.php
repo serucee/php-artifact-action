@@ -6,6 +6,12 @@ namespace ArtifactCreation\Helper;
 
 use ArtifactCreation\Exception\MissingParameterException;
 
+/**
+ * Contains useful array methods
+ *
+ * Class ArrayHelper
+ * @package ArtifactCreation\Helper
+ */
 class ArrayHelper
 {
     /**

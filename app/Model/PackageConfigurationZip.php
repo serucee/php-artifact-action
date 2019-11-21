@@ -3,16 +3,34 @@
 
 namespace ArtifactCreation\Model;
 
+use ArtifactCreation\Exception\MissingParameterException;
 use ArtifactCreation\Helper\ArrayHelper;
 
-class PackageZipConfiguration extends ConfigurationAbstract
+/**
+ * Configuration for zip packages
+ *
+ * Class PackageConfigurationZip
+ * @package ArtifactCreation\Model
+ */
+class PackageConfigurationZip extends PackageConfigurationAbstract
 {
+    /** @var string PACKAGE_TYPE */
     const PACKAGE_TYPE = 'zip';
+    /** @var string KEY_FOLDER_BLACKLIST */
     const KEY_FOLDER_BLACKLIST = 'folder-blacklist';
+    /** @var string KEY_FILE_BLACKLIST */
     const KEY_FILE_BLACKLIST = 'file-blacklist';
 
+    /** @var string $blackList */
     protected $blackList;
 
+    /**
+     * PackageConfigurationZip constructor.
+     *
+     * @param $configuration
+     *
+     * @throws MissingParameterException
+     */
     public function __construct($configuration)
     {
         parent::__construct($configuration);
@@ -20,6 +38,9 @@ class PackageZipConfiguration extends ConfigurationAbstract
         $this->blackList = $this->setBlackList();
     }
 
+    /**
+     * Set the command
+     */
     protected function setCommand()
     {
         $command = 'zip -r artifact.zip .';
@@ -30,6 +51,11 @@ class PackageZipConfiguration extends ConfigurationAbstract
         $this->command = $command;
     }
 
+    /**
+     * Set blacklist
+     *
+     * @throws MissingParameterException
+     */
     protected function setBlackList()
     {
         $blacklist = '';
@@ -39,6 +65,16 @@ class PackageZipConfiguration extends ConfigurationAbstract
         $this->blackList = $blacklist;
     }
 
+    /**
+     * Fetch blacklist parameters from configuration
+     *
+     * @param $key
+     * @param string $glue
+     *
+     * @return string
+     *
+     * @throws MissingParameterException
+     */
     protected function fetchBlackListParameters($key, $glue = ' ') {
         $parameters    = '';
         $valueArray = ArrayHelper::valueByKey($this->configurationArray, $key);
@@ -50,6 +86,11 @@ class PackageZipConfiguration extends ConfigurationAbstract
         return $parameters;
     }
 
+    /**
+     * Check if blacklist is set
+     *
+     * @return bool
+     */
     public function hasBlackList()
     {
         if ($this->blackList === '') {
