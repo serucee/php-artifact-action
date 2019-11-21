@@ -17,14 +17,14 @@ class ArrayHelper
     /**
      * @param array $array
      * @param string|int $key
-     * @param null $defaultValue
      * @param bool $requiredParameter
+     * @param null $defaultValue
      *
      * @return array|string|null|
      *
      * @throws MissingParameterException
      */
-    public static function valueByKey($array, $key, $defaultValue = null, $requiredParameter = false) {
+    public static function valueByKey($array, $key, $requiredParameter = false, $defaultValue = null) {
 
         if (is_array($array) && isset($array[$key])) {
             return $array[$key];

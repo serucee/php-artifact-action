@@ -84,13 +84,18 @@ class ConfigurationParser
      * Fetch the given key from the loaded configuration
      *
      * @param string|int $key
+     * @param bool $mandatory
      *
      * @return array|string|null
      *
      * @throws MissingParameterException
      */
-    protected function fetchConfigurationParameter($key)
+    protected function fetchConfigurationParameter($key, $mandatory = false)
     {
+        if ($mandatory) {
+            return ArrayHelper::valueByKey($this->configuration, $key, $mandatory);
+        }
+
         return ArrayHelper::valueByKey($this->configuration, $key);
     }
 
@@ -102,7 +107,7 @@ class ConfigurationParser
      */
     protected function setPackageConfiguration()
     {
-        $packageConfiguration = $this->fetchConfigurationParameter(self::CONFIGURATION_KEY_PACKAGE);
+        $packageConfiguration = $this->fetchConfigurationParameter(self::CONFIGURATION_KEY_PACKAGE, true);
         if ($packageConfiguration === null) {
             throw new MissingConfigurationException('No package configuration provided at .github/artifact-configuration.json');
         }
