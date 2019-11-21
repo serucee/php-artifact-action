@@ -18,7 +18,7 @@ class ArrayHelper
      * @param array $array
      * @param string|int $key
      * @param bool $requiredParameter
-     * @param null $defaultValue
+     * @param mixed $defaultValue
      *
      * @return array|string|null
      *
