@@ -20,7 +20,7 @@ class ArrayHelper
      * @param bool $requiredParameter
      * @param null $defaultValue
      *
-     * @return array|string|null|
+     * @return array|string|null
      *
      * @throws MissingParameterException
      */
