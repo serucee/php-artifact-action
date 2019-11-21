@@ -1,6 +1,8 @@
 # Container Action Template
 
-!WIP!  
+Builds a release artifact according to the configuration file (artifact-configuration.json) in the calling repository.  
+When using zip the generated artifact is called artifact.zip and is stored in /github/workspace 
+
 ## Example artifact-configuration.json
 
 ### Mandatory example artifact-configuration.json
