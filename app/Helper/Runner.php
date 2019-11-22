@@ -3,7 +3,6 @@
 
 namespace ArtifactCreation\Helper;
 
-
 use ArtifactCreation\Model\ConfigurationAbstract;
 
 /**

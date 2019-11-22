@@ -3,7 +3,6 @@
 
 namespace ArtifactCreation\Helper;
 
-
 use ArtifactCreation\Exception\MissingParameterException;
 
 /**
@@ -24,14 +23,17 @@ class ArrayHelper
      *
      * @throws MissingParameterException
      */
-    public static function valueByKey(array $array, $key, $requiredParameter = false, $defaultValue = null) {
+    public static function valueByKey(array $array, $key, $requiredParameter = false, $defaultValue = null)
+    {
 
         if (is_array($array) && isset($array[$key])) {
             return $array[$key];
         }
 
         if ($requiredParameter) {
-            throw new MissingParameterException('Required parameter missing!:: array: ' . json_encode($array) . 'key: ' . $key);
+            throw new MissingParameterException(
+                'Required parameter missing!:: array: ' . json_encode($array) . 'key: ' . $key
+            );
         }
 
         return $defaultValue;

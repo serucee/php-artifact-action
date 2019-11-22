@@ -3,7 +3,7 @@
 
 namespace ArtifactCreation\Model;
 
-class PackageConfigurationAbstract extends ConfigurationAbstract
+abstract class PackageConfigurationAbstract extends ConfigurationAbstract
 {
 
 }

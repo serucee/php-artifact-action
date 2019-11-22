@@ -75,7 +75,8 @@ class PackageConfigurationZip extends PackageConfigurationAbstract
      *
      * @throws MissingParameterException
      */
-    protected function fetchBlackListParameters($key, $glue = ' ') {
+    protected function fetchBlackListParameters($key, $glue = ' ')
+    {
         $parameters    = '';
         $valueArray = ArrayHelper::valueByKey($this->configurationArray, $key);
         if ($valueArray !== null) {

@@ -3,7 +3,6 @@
 
 namespace ArtifactCreation\Helper;
 
-
 use ArtifactCreation\Builder\PackageConfigurationBuilder;
 use ArtifactCreation\Exception\InvalidFileException;
 use ArtifactCreation\Exception\MissingConfigurationException;
