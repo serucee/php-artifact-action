@@ -27,8 +27,12 @@ class PackageConfigurationBuilder
      * @throws MissingConfigurationException
      * @throws MissingParameterException
      */
-    public function build(array $packageConfiguration) {
-        $packageType = ArrayHelper::valueByKey($packageConfiguration, ConfigurationParser::CONFIGURATION_KEY_PACKAGE_TYPE);
+    public function build(array $packageConfiguration)
+    {
+        $packageType = ArrayHelper::valueByKey(
+            $packageConfiguration,
+            ConfigurationParser::CONFIGURATION_KEY_PACKAGE_TYPE
+        );
 
         if ($packageType === PackageConfigurationZip::PACKAGE_TYPE) {
             return new PackageConfigurationZip($packageConfiguration);

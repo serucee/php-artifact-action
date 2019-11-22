@@ -3,7 +3,6 @@
 
 namespace ArtifactCreation\Exception;
 
-
 use Exception;
 
 /**
