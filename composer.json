@@ -6,8 +6,8 @@
     "squizlabs/php_codesniffer": "3.*"
   },
   "scripts": {
-    "phpcs": "./vendor/bin/phpcs ./app",
-    "phpcbf": "./vendor/bin/phpcbf ./app"
+    "phpcs": "./app/vendor/bin/phpcs ./app",
+    "phpcbf": "./app/vendor/bin/phpcbf ./app"
   },
   "config": {
     "vendor-dir": "app/vendor"
