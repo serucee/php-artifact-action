@@ -3,16 +3,17 @@
 
 namespace ArtifactCreation\Core;
 
-use ArtifactCreation\Helper\ConfigurationParser;
+use ArtifactCreation\Helper\Configuration;
 use ArtifactCreation\Helper\ExceptionHelper;
+use ArtifactCreation\Helper\ParserJson;
 use ArtifactCreation\Helper\Runner;
 use Exception;
 
 require __DIR__ . '/vendor/autoload.php';
 $fullyQualifiedConfigurationFileName = '/github/workspace/.github/artifact-configuration.json';
-
 try {
-    $configuration = new ConfigurationParser($fullyQualifiedConfigurationFileName);
+    $parserJson = new ParserJson($fullyQualifiedConfigurationFileName);
+    $configuration = new Configuration($parserJson);
 } catch (Exception $e) {
     ExceptionHelper::dieWithError('main::', $e);
 }
