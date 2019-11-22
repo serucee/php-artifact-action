@@ -17,7 +17,7 @@ class ParserJson extends ParserAbstract
     /**
      * Parse json file to array
      *
-     * @return mixed
+     * @return array
      *
      * @throws InvalidFileException
      * @throws MissingFileException

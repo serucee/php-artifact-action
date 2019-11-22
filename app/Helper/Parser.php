@@ -13,7 +13,7 @@ interface Parser
     /**
      * Parse something
      *
-     * @return mixed
+     * @return array
      */
     public function parse();
 }
