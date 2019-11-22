@@ -3,7 +3,6 @@
 
 namespace ArtifactCreation\Helper;
 
-
 use ArtifactCreation\Exception\MissingFileException;
 
 /**
@@ -26,7 +25,7 @@ abstract class ParserAbstract implements Parser
      */
     public function __construct($file)
     {
-        if(!file_exists($file)) {
+        if (!file_exists($file)) {
             throw new MissingFileException('Specified file does not exist!');
         }
         $this->file = $file;
