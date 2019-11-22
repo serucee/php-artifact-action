@@ -8,7 +8,7 @@ use ArtifactCreation\Helper\ExceptionHelper;
 use ArtifactCreation\Helper\Runner;
 use Exception;
 
-require __DIR__ . 'vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 $fullyQualifiedConfigurationFileName = '/github/workspace/.github/artifact-configuration.json';
 
 try {
