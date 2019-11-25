@@ -1,15 +1,13 @@
 <?php
 
 
-namespace ArtifactCreation\Helper;
+namespace ArtifactCreation\Model;
 
 use ArtifactCreation\Builder\PackageConfigurationBuilder;
-use ArtifactCreation\Exception\InvalidFileException;
 use ArtifactCreation\Exception\MissingConfigurationException;
-use ArtifactCreation\Exception\MissingFileException;
 use ArtifactCreation\Exception\MissingParameterException;
-use ArtifactCreation\Model\ComposerConfiguration;
-use ArtifactCreation\Model\PackageConfigurationAbstract;
+use ArtifactCreation\Helper\ArrayHelper;
+use ArtifactCreation\Helper\Parser;
 
 /**
  * Parses the mandatory configuration file

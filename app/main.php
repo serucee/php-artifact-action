@@ -3,7 +3,7 @@
 
 namespace ArtifactCreation\Core;
 
-use ArtifactCreation\Helper\Configuration;
+use ArtifactCreation\Model\Configuration;
 use ArtifactCreation\Helper\ExceptionHelper;
 use ArtifactCreation\Helper\ParserJson;
 use ArtifactCreation\Helper\Runner;

@@ -5,8 +5,7 @@ namespace ArtifactCreation\Builder;
 use ArtifactCreation\Exception\MissingConfigurationException;
 use ArtifactCreation\Exception\MissingParameterException;
 use ArtifactCreation\Helper\ArrayHelper;
-use ArtifactCreation\Helper\Configuration;
-use ArtifactCreation\Model\PackageConfigurationAbstract;
+use ArtifactCreation\Model\Configuration;
 use ArtifactCreation\Model\PackageConfigurationZip;
 
 /**
