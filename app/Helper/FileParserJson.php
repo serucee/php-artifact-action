@@ -9,7 +9,7 @@ use ArtifactCreation\Exception\MissingFileException;
 /**
  * Parse json file to array
  *
- * Class Parser
+ * Class FileParserJson
  * @package ArtifactCreation\Helper
  */
 class FileParserJson extends FileParserAbstract
@@ -24,8 +24,7 @@ class FileParserJson extends FileParserAbstract
      */
     public function parse()
     {
-        $fullyQualifiedFileName = $this->file;
-        $fileContentRaw = file_get_contents($fullyQualifiedFileName);
+        $fileContentRaw = file_get_contents($this->file);
         if ($fileContentRaw === false) {
             throw new MissingFileException('Could not load configuration file!');
         }

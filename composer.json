@@ -3,7 +3,8 @@
     "psr-4": {"ArtifactCreation\\": "app/"}
   },
   "require-dev": {
-    "squizlabs/php_codesniffer": "3.*"
+    "squizlabs/php_codesniffer": "3.*",
+    "codeception/base": "^3.1"
   },
   "scripts": {
     "phpcs": "./app/vendor/bin/phpcs ./app",
