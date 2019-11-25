@@ -12,7 +12,7 @@ use ArtifactCreation\Exception\MissingFileException;
  * Class Parser
  * @package ArtifactCreation\Helper
  */
-class ParserJson extends ParserAbstract
+class FileParserJson extends FileParserAbstract
 {
     /**
      * Parse json file to array

@@ -8,16 +8,16 @@ use ArtifactCreation\Exception\MissingFileException;
 /**
  * Abstract file parser
  *
- * Class ParserAbstract
+ * Class FileParserAbstract
  * @package ArtifactCreation\Helper
  */
-abstract class ParserAbstract implements Parser
+abstract class FileParserAbstract implements Parser
 {
     /** @var string $file */
     protected $file;
 
     /**
-     * ParserAbstract constructor.
+     * FileParserAbstract constructor.
      *
      * @param string $file
      *
