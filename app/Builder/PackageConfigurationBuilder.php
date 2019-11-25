@@ -5,8 +5,7 @@ namespace ArtifactCreation\Builder;
 use ArtifactCreation\Exception\MissingConfigurationException;
 use ArtifactCreation\Exception\MissingParameterException;
 use ArtifactCreation\Helper\ArrayHelper;
-use ArtifactCreation\Helper\ConfigurationParser;
-use ArtifactCreation\Model\PackageConfigurationAbstract;
+use ArtifactCreation\Model\Configuration;
 use ArtifactCreation\Model\PackageConfigurationZip;
 
 /**
@@ -31,7 +30,7 @@ class PackageConfigurationBuilder
     {
         $packageType = ArrayHelper::valueByKey(
             $packageConfiguration,
-            ConfigurationParser::CONFIGURATION_KEY_PACKAGE_TYPE
+            Configuration::CONFIGURATION_KEY_PACKAGE_TYPE
         );
 
         if ($packageType === PackageConfigurationZip::PACKAGE_TYPE) {

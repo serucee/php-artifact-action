@@ -1,24 +1,22 @@
 <?php
 
 
-namespace ArtifactCreation\Helper;
+namespace ArtifactCreation\Model;
 
 use ArtifactCreation\Builder\PackageConfigurationBuilder;
-use ArtifactCreation\Exception\InvalidFileException;
 use ArtifactCreation\Exception\MissingConfigurationException;
-use ArtifactCreation\Exception\MissingFileException;
 use ArtifactCreation\Exception\MissingParameterException;
-use ArtifactCreation\Model\ComposerConfiguration;
-use ArtifactCreation\Model\PackageConfigurationAbstract;
+use ArtifactCreation\Helper\ArrayHelper;
+use ArtifactCreation\Helper\Parser;
 
 /**
  * Parses the mandatory configuration file
  * and acts as a DTO
  *
- * Class ConfigurationParser
+ * Class Configuration
  * @package ArtifactCreation\Helper
  */
-class ConfigurationParser
+class Configuration
 {
     /** @var string CONFIGURATION_KEY_COMPOSER */
     const CONFIGURATION_KEY_COMPOSER = 'composer';
@@ -36,51 +34,18 @@ class ConfigurationParser
 
 
     /**
-     * ConfigurationParser constructor.
+     * Configuration constructor.
      *
-     * @param string $fullyQualifiedFileName
+     * @param Parser $parser
      *
-     * @throws InvalidFileException
      * @throws MissingConfigurationException
-     * @throws MissingFileException
      * @throws MissingParameterException
      */
-    public function __construct($fullyQualifiedFileName)
+    public function __construct(Parser $parser)
     {
-        $this->configuration = $this->parseJsonFile($fullyQualifiedFileName);
+        $this->configuration = $parser->parse();
         $this->initPackageConfiguration();
         $this->initComposerConfiguration();
-    }
-
-
-    /**
-     * Parse the json file with the given fully qualified filename
-     *
-     * @param $fullyQualifiedFileName
-     *
-     * @return mixed
-     *
-     * @throws InvalidFileException
-     * @throws MissingFileException
-     */
-    protected function parseJsonFile($fullyQualifiedFileName)
-    {
-        $fileContentRaw = file_get_contents($fullyQualifiedFileName);
-        if ($fileContentRaw === false) {
-            throw new MissingFileException('Could not load configuration file!');
-        }
-
-        $fileContent = json_decode($fileContentRaw, true);
-
-        if (json_last_error() != JSON_ERROR_NONE) {
-            throw new InvalidFileException('Configuration file is not valid json!');
-        }
-
-        if (!is_array($fileContent)) {
-            throw new InvalidFileException('Configuration file could not be parsed as an array');
-        }
-
-        return $fileContent;
     }
 
     /**
