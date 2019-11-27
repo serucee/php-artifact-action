@@ -4,5 +4,5 @@
 set -e
 
 echo "Calling php script"
-php /usr/local/bin/app/main.php
+php /usr/local/bin/src/main.php
 exit $?
