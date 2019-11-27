@@ -14,7 +14,7 @@ use ArtifactCreation\Helper\ArrayHelper;
 abstract class ConfigurationAbstract
 {
     /** @var string KEY_EXECUTION_PATH */
-    const KEY_EXECUTION_PATH = 'execution_path';
+    const KEY_EXECUTION_PATH = 'execution-path';
 
     /** @var array $configurationArray */
     protected $configurationArray;

@@ -94,7 +94,7 @@ class PackageConfigurationZip extends PackageConfigurationAbstract
      */
     public function hasBlackList()
     {
-        if ($this->blackList === '') {
+        if (empty($this->blackList)) {
             return false;
         }
 
