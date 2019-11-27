@@ -35,13 +35,13 @@ class PackageConfigurationZip extends PackageConfigurationAbstract
     {
         parent::__construct($configuration);
 
-        $this->blackList = $this->setBlackList();
+        $this->setBlackList();
     }
 
     /**
      * Set the command
      */
-    protected function setCommand()
+    public function setCommand()
     {
         $command = 'zip -r artifact.zip .';
         if ($this->hasBlackList()) {
@@ -58,11 +58,11 @@ class PackageConfigurationZip extends PackageConfigurationAbstract
      */
     protected function setBlackList()
     {
-        $blacklist = '';
-        $blacklist .= $this->fetchBlackListParameters(self::KEY_FOLDER_BLACKLIST);
-        $blacklist .= $this->fetchBlackListParameters(self::KEY_FILE_BLACKLIST);
+        $blackList = '';
+        $blackList .= $this->fetchBlackListParameters(self::KEY_FOLDER_BLACKLIST);
+        $blackList .= $this->fetchBlackListParameters(self::KEY_FILE_BLACKLIST);
 
-        $this->blackList = $blacklist;
+        $this->blackList = $blackList;
     }
 
     /**
@@ -77,7 +77,7 @@ class PackageConfigurationZip extends PackageConfigurationAbstract
      */
     protected function fetchBlackListParameters($key, $glue = ' ')
     {
-        $parameters    = '';
+        $parameters = '';
         $valueArray = ArrayHelper::valueByKey($this->configurationArray, $key);
         if ($valueArray !== null) {
             $parameters .= ' ';

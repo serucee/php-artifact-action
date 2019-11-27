@@ -34,7 +34,6 @@ abstract class ConfigurationAbstract
     {
         $this->configurationArray = $configuration;
         $this->setExecutionPath();
-        $this->setCommand();
     }
 
     /**
@@ -56,15 +55,21 @@ abstract class ConfigurationAbstract
     /**
      * Set command
      */
-    abstract protected function setCommand();
+    abstract public function setCommand();
+
 
     /**
      * Get command
      *
      * @return string
+     *
+     * @throws MissingParameterException
      */
     public function getCommand()
     {
+        if (empty($this->command)) {
+            throw new MissingParameterException('No command set!');
+        }
         return $this->command;
     }
 

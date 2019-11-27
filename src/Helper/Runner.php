@@ -3,6 +3,7 @@
 
 namespace ArtifactCreation\Helper;
 
+use ArtifactCreation\Exception\MissingParameterException;
 use ArtifactCreation\Model\ConfigurationAbstract;
 
 /**
@@ -20,11 +21,15 @@ class Runner
      */
     public function execute(ConfigurationAbstract $configuration)
     {
-        $fullCommand = sprintf(
-            'cd %s && %s',
-            $configuration->getExecutionPath(),
-            $configuration->getCommand()
-        );
+        try {
+            $fullCommand = sprintf(
+                'cd %s && %s',
+                $configuration->getExecutionPath(),
+                $configuration->getCommand()
+            );
+        } catch (MissingParameterException $e) {
+            ExceptionHelper::dieWithError('runner::', $e);
+        }
 
         shell_exec($fullCommand);
     }

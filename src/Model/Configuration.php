@@ -73,6 +73,7 @@ class Configuration
     {
         $packageConfiguration = $this->fetchConfigurationParameter(self::CONFIGURATION_KEY_PACKAGE, true);
         $this->packageConfiguration = (new PackageConfigurationBuilder())->build($packageConfiguration);
+        $this->packageConfiguration->setCommand();
     }
 
     /**
@@ -86,6 +87,7 @@ class Configuration
 
         if ($composerConfiguration !== null) {
             $composerConfiguration = new ComposerConfiguration($composerConfiguration);
+            $composerConfiguration->setCommand();
         }
 
         $this->composerConfiguration = $composerConfiguration;

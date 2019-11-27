@@ -13,7 +13,7 @@ class ComposerConfiguration extends ConfigurationAbstract
     /**
      * Set the command
      */
-    protected function setCommand()
+    public function setCommand()
     {
         $command = 'composer install --no-dev --ignore-platform-reqs --no-interaction';
 
