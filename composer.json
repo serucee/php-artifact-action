@@ -1,6 +1,8 @@
 {
   "autoload": {
-    "psr-4": {"ArtifactCreation\\": "src/"}
+    "psr-4": {
+      "ArtifactCreation\\": "src/"
+    }
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "3.*",
