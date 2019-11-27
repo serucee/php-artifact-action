@@ -5,7 +5,9 @@ set -e
 
 echo "Calling php script"
 php /usr/local/bin/src/main.php
-if (( $? != 0 )); then
+EXIT_CODE=$?
+
+if (( EXIT_CODE != 0 )); then
     echo "Script execution ended with error :: " $?
     exit 1
 fi
