@@ -47,7 +47,7 @@ class ArrayHelperTest extends \Codeception\Test\Unit
      *
      * @since 0.0.1
      */
-    public function testValueByKey()
+    public function testValueByKeyReturned()
     {
         $value = ArrayHelper::valueByKey($this->validArray, self::KEY);
         $this->assertEquals(self::KEY_VALUE, $value);
@@ -58,7 +58,7 @@ class ArrayHelperTest extends \Codeception\Test\Unit
      *
      * @since 0.0.1
      */
-    public function testValueByKeyWithRequiredParameter()
+    public function testValueByKeyReturnedWithRequiredParameter()
     {
         $value = ArrayHelper::valueByKey($this->validArray, self::KEY, true);
         $this->assertEquals(self::KEY_VALUE, $value);
