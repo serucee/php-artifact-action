@@ -32,7 +32,7 @@ class ArrayHelper
 
         if ($requiredParameter) {
             throw new MissingParameterException(
-                'Required parameter missing!:: array: ' . json_encode($array) . 'key: ' . $key
+                'Required parameter missing! array: ' . json_encode($array) . 'key: ' . $key
             );
         }
 

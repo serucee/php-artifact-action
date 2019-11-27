@@ -18,7 +18,7 @@ try {
     $parserJson = new FileParserJson($fullyQualifiedConfigurationFileName);
     $configuration = new Configuration($parserJson);
 } catch (Exception $e) {
-    ExceptionHelper::dieWithError('main::', $e);
+    ExceptionHelper::dieWithError('main ', $e);
 }
 
 $runner = new Runner();

@@ -8,7 +8,7 @@ php /usr/local/bin/src/main.php
 EXIT_CODE=$?
 
 if ! [[ "$EXIT_CODE" == 0 ]]; then
-    echo "Script execution ended with error :: $EXIT_CODE"
+    echo "::error file=main.php::Script execution ended with error message $EXIT_CODE"
     exit 1
 fi
 echo "Script execution successful"

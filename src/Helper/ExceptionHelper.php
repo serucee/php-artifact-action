@@ -23,7 +23,7 @@ class ExceptionHelper
     public static function dieWithError($context, Exception $error)
     {
         $msg = sprintf(
-            'Could not execute %s:: %s',
+            'Could not execute %s %s',
             $context,
             $error->getMessage()
         );

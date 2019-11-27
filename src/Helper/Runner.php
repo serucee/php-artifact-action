@@ -28,7 +28,7 @@ class Runner
                 $configuration->getCommand()
             );
         } catch (MissingParameterException $e) {
-            ExceptionHelper::dieWithError('runner::', $e);
+            ExceptionHelper::dieWithError('runner ', $e);
         }
 
         shell_exec($fullCommand);
