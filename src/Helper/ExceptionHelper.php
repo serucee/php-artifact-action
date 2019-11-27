@@ -27,6 +27,7 @@ class ExceptionHelper
             $context,
             $error->getMessage()
         );
+
         exit($msg);
     }
 }
