@@ -13,7 +13,6 @@ require __DIR__ . '/../vendor/autoload.php';
 // Currently the configuration filename is hardcoded
 // If necessary it can be a parameter passed to this file
 $fullyQualifiedConfigurationFileName = '/github/workspace/.github/artifact-configuration.json';
-$runner = new Runner();
 try {
     $parserJson = new FileParserJson($fullyQualifiedConfigurationFileName);
     $configuration = new Configuration($parserJson);
