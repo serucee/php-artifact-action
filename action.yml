@@ -1,18 +1,6 @@
 name: 'PHP artifact action'
 description: 'Build release artifacts for PHP based projects'
 author: 'Wirecard'
-#inputs:
-  #myInput:
-    # json conf file
-    # possible params to overwrite:
-    # composer exec path
-    # zip path
-    # files to exclude for zipping
-    # package name (this gets output fully - including file ending+path - as well)
-    #description: 'Input to use'
-    #default: 'world'
 runs:
   using: 'docker'
   image: 'Dockerfile'
-#  args:
-#    - ${{ inputs.myInput }}

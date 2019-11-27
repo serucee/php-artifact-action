@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'ArtifactCreation\\' => array($baseDir . '/app'),
+    'ArtifactCreation\\' => array($baseDir . '/src'),
 );

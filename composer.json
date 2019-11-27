@@ -1,5 +1,16 @@
 {
   "autoload": {
-    "psr-4": {"ArtifactCreation\\": "app/"}
+    "psr-4": {"ArtifactCreation\\": "src/"}
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "3.*",
+    "codeception/base": "^3.1"
+  },
+  "scripts": {
+    "phpcs": "./vendor/bin/phpcs ./app",
+    "phpcbf": "./vendor/bin/phpcbf ./app"
+  },
+  "config": {
+    "vendor-dir": "vendor"
   }
 }
