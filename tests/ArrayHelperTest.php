@@ -8,6 +8,8 @@ use ArtifactCreation\Helper\ArrayHelper;
  *
  * @group Wrappers
  * @package ArtifactActionTest
+ *
+ * @since 0.0.1
  */
 class ArrayHelperTest extends \Codeception\Test\Unit
 {

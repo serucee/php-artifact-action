@@ -27,8 +27,6 @@ abstract class ConfigurationAbstract
      * ConfigurationAbstract constructor.
      *
      * @param array $configuration
-     *
-     * @throws MissingParameterException
      */
     public function __construct(array $configuration)
     {
@@ -38,8 +36,6 @@ abstract class ConfigurationAbstract
 
     /**
      * Set the execution path for the command
-     *
-     * @throws MissingParameterException
      */
     protected function setExecutionPath()
     {
@@ -56,7 +52,6 @@ abstract class ConfigurationAbstract
      * Set command
      */
     abstract public function setCommand();
-
 
     /**
      * Get command
