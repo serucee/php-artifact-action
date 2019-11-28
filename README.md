@@ -54,7 +54,7 @@ It calls the required objects in the correct order and executes the necessary me
 
 ### Builder
 
-The Builder folder currently contains the PackageConfigurationBuilder to be able to use different output formats in the future.
+The Builder folder currently contains the ```PackageConfigurationBuilder``` to be able to use different output formats in the future.
 
 ### Exception
 
