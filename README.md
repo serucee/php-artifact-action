@@ -63,29 +63,29 @@ The Exception folder contains all the defined exceptions used in the project.
 ### Helper
 
 The Helper folder contains helpers and classes that actually execute or run something.  
-* ArrayHelper  
+* ```ArrayHelper```  
   The ArrayHelper contains methods useful for handling arrays
-* ExceptionHelper  
+* ```ExceptionHelper```  
   The ExceptionHelper is a wrapper for exception handling to return correct output for entrypoint.sh
-* FileParserAbstract  
+* ```FileParserAbstract```  
   The FileParserAbstract is a base class for file parsers, so several configuration types are possible in the future.
-* FileParserJson  
+* ```FileParserJson```  
   The FileParserJson extends the FileParserAbstract and returns the parsed file as an array.
-* Parser Interface  
+* ```Parser Interface```  
   The Parser Interface is used to have a common interface for parsers.
-* Runner  
+* ```Runner```  
   The Runner executes bash commands using configuration objects.
 
 ### Model
 
 The Model folder contains configuration objects used by helpers.  
-* ComposerConfiguration  
+* ```ComposerConfiguration```  
   The ComposerConfiguration contains all necessary information the Runner needs to execute composer commands.
-* Configuration  
+* ```Configuration```  
   The Configuration acts as a DTO for all configuration objects used.
-* ConfigurationAbstract  
+* ```ConfigurationAbstract```  
   The ConfigurationAbstract is used to define all base methods Configuration objects require for the Runner.
-* PackageConfigurationAbstract  
+* ```PackageConfigurationAbstract```  
   The PackageConfigurationAbstract is a layer to support different package types in the future.
-* PackageConfigurationZip  
+* ```PackageConfigurationZip```  
   The PackageConfigurationZip contains all necessary information the Runner needs to execute a zip command.
