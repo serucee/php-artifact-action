@@ -31,6 +31,8 @@ class Configuration
     protected $composerConfiguration;
     /** @var PackageConfigurationAbstract $packageConfiguration */
     protected $packageConfiguration;
+    /** @var Parser $parser */
+    private $parser;
 
 
     /**
@@ -38,14 +40,37 @@ class Configuration
      *
      * @param Parser $parser
      *
-     * @throws MissingConfigurationException
-     * @throws MissingParameterException
+     * @since 0.0.1
      */
     public function __construct(Parser $parser)
     {
-        $this->configuration = $parser->parse();
+       $this->setParser($parser);
+    }
+
+    /**
+     * @return $this
+     * @throws MissingConfigurationException
+     * @throws MissingParameterException
+     *
+     * @since 0.0.1
+     */
+    public function init()
+    {
+        $this->configuration = $this->parser->parse();
         $this->initPackageConfiguration();
         $this->initComposerConfiguration();
+
+        return $this;
+    }
+
+    /**
+     * @param Parser $parser
+     *
+     * @since 0.0.1
+     */
+    protected function setParser(Parser $parser)
+    {
+        $this->parser = $parser;
     }
 
     /**

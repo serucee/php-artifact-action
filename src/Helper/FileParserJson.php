@@ -24,7 +24,7 @@ class FileParserJson extends FileParserAbstract
      */
     public function parse()
     {
-        $fileContentRaw = file_get_contents($this->file);
+        $fileContentRaw = file_get_contents($this->getFile());
         if ($fileContentRaw === false) {
             throw new MissingFileException('Could not load configuration file!');
         }
