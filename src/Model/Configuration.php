@@ -71,9 +71,8 @@ class Configuration
      */
     protected function initPackageConfiguration()
     {
-        $packageConfiguration = $this->fetchConfigurationParameter(self::CONFIGURATION_KEY_PACKAGE, true);
-        $this->packageConfiguration = (new PackageConfigurationBuilder())->build($packageConfiguration);
-        $this->packageConfiguration->setCommand();
+        $packageConfigurationArray = $this->fetchConfigurationParameter(self::CONFIGURATION_KEY_PACKAGE, true);
+        $this->packageConfiguration = (new PackageConfigurationBuilder())->build($packageConfigurationArray);
     }
 
     /**
