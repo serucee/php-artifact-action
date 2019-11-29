@@ -39,6 +39,8 @@ class ComposerConfigurationTest extends \Codeception\Test\Unit
     /**
      * Test if command is set correct
      *
+     * @small
+     *
      * @since 0.0.1
      */
     public function testCommandIsSetCorrectly()
@@ -48,6 +50,8 @@ class ComposerConfigurationTest extends \Codeception\Test\Unit
 
     /**
      * Test if execution path is set correct if given
+     *
+     * @small
      *
      * @since 0.0.1
      */
@@ -62,6 +66,8 @@ class ComposerConfigurationTest extends \Codeception\Test\Unit
 
     /**
      * Test if fallback execution path is correct if no execution path is passed
+     *
+     * @small
      *
      * @since 0.0.1
      */

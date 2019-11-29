@@ -45,7 +45,7 @@ class PackageConfigurationZip extends PackageConfigurationAbstract
     {
         $command = 'zip -r artifact.zip .';
         if ($this->hasBlackList()) {
-            $command .= ' -x ' . $this->blackList;
+            $command .= ' -x' . $this->blackList;
         }
 
         $this->command = $command;

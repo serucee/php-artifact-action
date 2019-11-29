@@ -94,7 +94,11 @@ class Configuration
      */
     protected function initPackageConfiguration()
     {
-        $packageConfiguration = ArrayHelper::valueByKey($this->configuration, self::CONFIGURATION_KEY_PACKAGE, true);
+        $packageConfiguration = ArrayHelper::valueByKey(
+            $this->configuration,
+            self::CONFIGURATION_KEY_PACKAGE,
+            true
+        );
 
         $this->packageConfiguration = (new PackageConfigurationBuilder())->build($packageConfiguration);
         $this->packageConfiguration->setCommand();
