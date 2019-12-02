@@ -5,7 +5,7 @@ use ArtifactCreation\Model\ComposerConfiguration;
 /**
  * Class ComposerConfigurationTest
  *
- * @group Model
+ * @group model
  * @package ArtifactActionTest
  *
  * @since 0.0.1

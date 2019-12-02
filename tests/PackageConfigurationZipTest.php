@@ -2,10 +2,19 @@
 
 use ArtifactCreation\Model\PackageConfigurationZip;
 
+/**
+ * Class PackageConfigurationZipTest
+ *
+ * @group model
+ * @package ArtifactActionTest
+ *
+ * @since 0.0.1
+ */
 class PackageConfigurationZipTest extends \Codeception\Test\Unit
 {
     /** @var string $executionPath */
     protected $executionPath;
+    /** @var string $baseCmd */
     protected $baseCmd;
 
     /**
@@ -18,12 +27,18 @@ class PackageConfigurationZipTest extends \Codeception\Test\Unit
     {
         $this->executionPath = '/github/workspace';
         $this->baseCmd = 'zip -r artifact.zip .';
-        //$this->command = 'composer install --no-dev --ignore-platform-reqs --no-interaction';
-        //$this->executionPath = '/github/workspace';
     }
 
     // tests
 
+    /**
+     * Test min command built
+     * Without blacklist
+     *
+     * @small
+     *
+     * @since 0.0.1
+     */
     public function testPackageConfiguration()
     {
         $packageConfiguration = $this->getMinPackageConfiguration();
@@ -33,6 +48,14 @@ class PackageConfigurationZipTest extends \Codeception\Test\Unit
         $this->assertEquals($this->baseCmd, $packageConfiguration->getCommand());
     }
 
+    /**
+     * Test command built
+     * Including blacklist
+     *
+     * @small
+     *
+     * @since 0.0.1
+     */
     public function testPackageConfigurationWithBlacklist()
     {
         $expectedCmd = $this->baseCmd . ' -x /test *git* hello world';
@@ -48,12 +71,27 @@ class PackageConfigurationZipTest extends \Codeception\Test\Unit
         $this->assertEquals($expectedCmd, $packageConfiguration->getCommand());
     }
 
+    /**
+     * Test if execution path is set correctly
+     *
+     * @small
+     *
+     * @since 0.0.1
+     */
     public function testExecutionPath()
     {
         $packageConfiguration = $this->getMinPackageConfiguration();
         $this->assertEquals($this->executionPath, $packageConfiguration->getExecutionPath());
     }
 
+    /**
+     * Return new min PackageConfigurationZip
+     * Without blacklist
+     *
+     * @since 0.0.1
+     *
+     * @return PackageConfigurationZip
+     */
     protected function getMinPackageConfiguration()
     {
         $configurationArray = ['type' => 'zip'];

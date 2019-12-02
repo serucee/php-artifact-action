@@ -6,7 +6,7 @@ use ArtifactCreation\Helper\ArrayHelper;
 /**
  * Class ArrayHelperTest
  *
- * @group Wrappers
+ * @group wrapper
  * @package ArtifactActionTest
  *
  * @since 0.0.1
