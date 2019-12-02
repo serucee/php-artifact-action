@@ -27,18 +27,6 @@ abstract class FileParserAbstract implements Parser
      */
     public function __construct($file)
     {
-        $this->setFile($file);
-    }
-
-    /**
-     * @param $file
-     *
-     * @throws MissingFileException
-     *
-     * @since 0.0.1
-     */
-    protected function setFile($file)
-    {
         if (!file_exists($file)) {
             throw new MissingFileException('Specified file does not exist!');
         }

@@ -43,7 +43,7 @@ class Configuration
      */
     public function __construct(Parser $parser)
     {
-       $this->setParser($parser);
+        $this->parser = $parser;
     }
 
     /**
@@ -57,7 +57,7 @@ class Configuration
      */
     public function init()
     {
-        $this->setConfiguration();
+        $this->setConfiguration($this->parser->parse());
         $this->initPackageConfiguration();
         $this->initComposerConfiguration();
 
@@ -67,23 +67,13 @@ class Configuration
     /**
      * Set configuration property
      *
-     * @since 0.0.1
-     */
-    protected function setConfiguration()
-    {
-        $this->configuration = $this->parser->parse();
-    }
-
-    /**
-     * Set parser property
-     *
-     * @param Parser $parser
+     * @param array $configuration
      *
      * @since 0.0.1
      */
-    protected function setParser(Parser $parser)
+    protected function setConfiguration(array $configuration)
     {
-        $this->parser = $parser;
+        $this->configuration = $configuration;
     }
 
     /**
