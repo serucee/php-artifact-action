@@ -101,7 +101,6 @@ class Configuration
         );
 
         $this->packageConfiguration = (new PackageConfigurationBuilder())->build($packageConfiguration);
-        $this->packageConfiguration->setCommand();
     }
 
     /**
