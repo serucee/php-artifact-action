@@ -79,10 +79,17 @@ class PackageConfigurationZip extends PackageConfigurationAbstract
     {
         $parameters = '';
         $valueArray = ArrayHelper::valueByKey($this->configurationArray, $key);
-        if ($valueArray !== null) {
-            $parameters .= ' ';
-            $parameters .= implode($glue, $valueArray);
+
+        if ($valueArray === null) {
+            return $parameters;
         }
+
+        if ($key === self::KEY_FOLDER_BLACKLIST) {
+            $valueArray = $this->formatFolderBlackList($valueArray);
+        }
+
+        $parameters .= ' ';
+        $parameters .= implode($glue, $valueArray);
 
         return $parameters;
     }
@@ -99,5 +106,25 @@ class PackageConfigurationZip extends PackageConfigurationAbstract
         }
 
         return true;
+    }
+
+    /**
+     * Format folder black list values to
+     * work with zip command
+     *
+     * @param array $array
+     *
+     * @return array
+     */
+    protected function formatFolderBlackList($array)
+    {
+        foreach ($array as $key => $value) {
+            $array[$key] = sprintf(
+                "'%s/*'",
+                $value
+            );
+        }
+
+        return $array;
     }
 }
