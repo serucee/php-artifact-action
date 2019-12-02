@@ -58,11 +58,11 @@ class PackageConfigurationZipTest extends \Codeception\Test\Unit
      */
     public function testPackageConfigurationWithBlacklist()
     {
-        $expectedCmd = $this->baseCmd . ' -x /test *git* hello world';
+        $expectedCmd = $this->baseCmd . " -x 'test/*' 'git/*' hello world";
         $configurationArray = [
             'type' => 'zip',
             'file-blacklist' => ['hello', 'world'],
-            'folder-blacklist' =>  ['/test', '*git*']
+            'folder-blacklist' =>  ['test', 'git']
         ];
         $packageConfiguration = new PackageConfigurationZip($configurationArray);
         $packageConfiguration->setCommand();
