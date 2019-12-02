@@ -16,7 +16,7 @@ $fullyQualifiedConfigurationFileName = '/github/workspace/.github/artifact-confi
 
 try {
     $parserJson = new FileParserJson($fullyQualifiedConfigurationFileName);
-    $configuration = new Configuration($parserJson);
+    $configuration = (new Configuration($parserJson))->init();
 } catch (Exception $e) {
     ExceptionHelper::dieWithError('main ', $e);
 }

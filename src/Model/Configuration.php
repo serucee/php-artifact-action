@@ -31,36 +31,49 @@ class Configuration
     protected $composerConfiguration;
     /** @var PackageConfigurationAbstract $packageConfiguration */
     protected $packageConfiguration;
-
+    /** @var Parser $parser */
+    protected $parser;
 
     /**
      * Configuration constructor.
      *
      * @param Parser $parser
      *
-     * @throws MissingConfigurationException
-     * @throws MissingParameterException
+     * @since 0.0.1
      */
     public function __construct(Parser $parser)
     {
-        $this->configuration = $parser->parse();
-        $this->initPackageConfiguration();
-        $this->initComposerConfiguration();
+        $this->parser = $parser;
     }
 
     /**
-     * Fetch the given key from the loaded configuration
+     * Initialize configurations
      *
-     * @param string|int $key
-     * @param bool $mandatory Throw error if value does not exist
-     *
-     * @return array|string|null
-     *
+     * @return $this
+     * @throws MissingConfigurationException
      * @throws MissingParameterException
+     *
+     * @since 0.0.1
      */
-    protected function fetchConfigurationParameter($key, $mandatory = false)
+    public function init()
     {
-        return ArrayHelper::valueByKey($this->configuration, $key, $mandatory);
+        $this->setConfiguration($this->parser->parse());
+        $this->initPackageConfiguration();
+        $this->initComposerConfiguration();
+
+        return $this;
+    }
+
+    /**
+     * Set configuration property
+     *
+     * @param array $configuration
+     *
+     * @since 0.0.1
+     */
+    protected function setConfiguration(array $configuration)
+    {
+        $this->configuration = $configuration;
     }
 
     /**
@@ -71,8 +84,13 @@ class Configuration
      */
     protected function initPackageConfiguration()
     {
-        $packageConfigurationArray = $this->fetchConfigurationParameter(self::CONFIGURATION_KEY_PACKAGE, true);
-        $this->packageConfiguration = (new PackageConfigurationBuilder())->build($packageConfigurationArray);
+        $packageConfiguration = ArrayHelper::valueByKey(
+            $this->configuration,
+            self::CONFIGURATION_KEY_PACKAGE,
+            true
+        );
+
+        $this->packageConfiguration = (new PackageConfigurationBuilder())->build($packageConfiguration);
     }
 
     /**
@@ -82,7 +100,7 @@ class Configuration
      */
     protected function initComposerConfiguration()
     {
-        $composerConfiguration = $this->fetchConfigurationParameter(self::CONFIGURATION_KEY_COMPOSER);
+        $composerConfiguration = ArrayHelper::valueByKey($this->configuration, self::CONFIGURATION_KEY_COMPOSER);
 
         if ($composerConfiguration !== null) {
             $composerConfiguration = new ComposerConfiguration($composerConfiguration);
