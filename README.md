@@ -37,13 +37,15 @@ to be used in several php projects and I wanted to avoid passing too many parame
     "type": "zip",
     "execution-path": "/github/workspace",
     "file-blacklist": ["randomfile.txt", "*.md*"],
-    "folder-blacklist": ["randomfolder", "tests/*"]
+    "folder-blacklist": ["randomfolder", "tests"]
   },
   "composer": {
     "execution-path": "/github/workspace"  
  }
 }
 ```
+
+The folder blacklist automatically gets wrapped with ```'$value/*'```
 
 ## Short overview of the file structure and classes
 
